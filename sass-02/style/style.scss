@@ -1,0 +1,75 @@
+@import "./reset";
+@import "./variables";
+@import "./mixins";
+
+section {
+    height: 100vh;
+    padding: 20px;
+    width: 100%;
+    font-family: "Roboto";
+    @include flexCenter();
+
+    @media(max-width: $mobileMax) {
+        height: auto;
+        padding: 0;
+    }
+
+    .container {
+        width: 80%;
+
+        @media(max-width: $mobileMax) {
+           width: calc(100% - 40px);
+           padding: 80px 0 100px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            text-align: left;
+            padding: 24px 0;
+            font-weight: weight(bold);
+        }
+
+        p {
+            line-height: 1.5rem;
+
+            @media(max-width: $mobileMax) {
+               text-align: justify;
+             }
+        }
+
+        .actions {
+            @include flexCenter(row);
+            margin-top: 40px;
+            .btn {
+                margin: 0 auto;
+                padding: 8px;
+                border-radius: 8px;
+                font-size: 1.5rem;
+                text-decoration: none;
+                color: inherit;
+                font-weight: weight(medium);
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    &.javascript {
+        @include theme(#fadb36, #000);
+    }
+
+    &.react {
+        @include theme(#00c0dc, #fff);
+        .actions {
+            .btn {
+                &:hover {
+                    color: #3c3e34;
+                }
+            }
+        }
+    }
+
+    &.nodejs {
+        @include theme(#7db741, #3c3e34);
+    }
+}
